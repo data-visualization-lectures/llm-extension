@@ -1,78 +1,78 @@
-# AI - LLM Provider Definition Guide
-Documentation for managing LLM Provider which capatures the details of the AI service and configurations.
+# AI - LLM Provider 定義ガイド
+AI サービスおよびその設定内容を記録する LLM プロバイダーを管理するためのドキュメントです。
 
-## Overview
-This guide explains how to configure an LLM Provider by specifying key details such as the model, API key, temperature, top-p, seed, and max tokens.
+## 概要
+このガイドでは、モデル、API キー、temperature、top-p、seed、max tokens などの主要パラメーターを指定して LLM プロバイダーを構成する方法を説明します。
 
-If you want to use an LLM that does not support the /chat/completions endpoint, refer the [section](#llms-that-dont-support-the-chatcompletions-endpoint)
+/chat/completions エンドポイントに対応していない LLM を使いたい場合は [こちらのセクション](#llms-that-dont-support-the-chatcompletions-endpoint) を参照してください。
 
 ### [Ollama guide](https://github.com/sunilnatraj/llm-extension/blob/master/ollama-guide.md)
 ### [Groq guide](https://github.com/sunilnatraj/llm-extension/blob/master/groq-guide.md)
 ### [OpenRouter guide](https://github.com/sunilnatraj/llm-extension/blob/master/openrouter-guide.md)
 
-## Demo Video
+## デモ動画
 
 https://github.com/user-attachments/assets/e0c689de-3aff-4ece-8194-c483b4f17b5f
 
 
-## Configuration Fields
+## 設定フィールド
 
-| Field	      | Description                                                                                                                                                      |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Label       | A unique user-friendly name for the LLM provider.                                                                                                                |
-| Server URL  | The endpoint for the chat completion API                                                                                                                         |
-| Model       | The model to use. Ensure the model is supported by the platform.                                                                                                 |
-| API Key     | The authentication key for accessing the API. If your service is running locally or does not support authentication set a dummy value                            |
-| Temperature | Controls randomness in responses (1 = balanced, 0 = deterministic, >1 = more creative).                                                                          |
-| Top-P       | Controls nucleus sampling (0.8 means tokens with 80% cumulative probability are considered).                                                                     |
-| Seed        | Ensures reproducible responses when set (e.g., 32). If left blank, responses may vary.                                                                           |
-| Max Tokens  | The maximum number of tokens the response can generate. Higher values allow longer responses but consume more API usage.                                         |
-| Wait Time   | Specify the duration to wait between requests. Set it to 0 for no wait between requests or time in milliseconds e.g. for a 2 second delay set the value as 2000. |
+| Field       | Description                                                                                                                                                       |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Label       | LLM プロバイダーに付けるユニークでわかりやすい名前。                                                                                                            |
+| Server URL  | Chat completion API のエンドポイント。                                                                                                                            |
+| Model       | 使用するモデル。プラットフォームでサポートされていることを確認してください。                                                                                     |
+| API Key     | API へアクセスするための認証キー。ローカルサービスや認証不要のサービスならダミー値でも構いません。                                                              |
+| Temperature | 応答のランダム性を制御します（1 = バランス、0 = 決定論的、1 より大きいと創造性が増す）。                                                                         |
+| Top-P       | nucleus sampling を制御します（例: 0.8 なら累積確率 80% に含まれるトークンを候補にする）。                                                                       |
+| Seed        | 再現性のある応答を得るための値（例: 32）。空欄だと応答は毎回変わります。                                                                                         |
+| Max Tokens  | 応答で生成できる最大トークン数。大きくすると長い応答が可能ですが API 使用量も増えます。                                                                         |
+| Wait Time   | リクエスト間で待機する時間。待機不要なら 0、2 秒待つなら 2000 などミリ秒で指定します。                                                                           |
  
 
-## Buttons & Actions
-| Button	| Function |
-|-------|-------------|
-|Help	| Opens the documentation or guide for configuring LLM Providers. |
-|Test | Service	Runs a test call to check if the API key, model, and server URL are correct. |
-|Cancel	| Discards changes and closes the dialog. |
-|Save	| Saves the configuration.|
+## ボタンとアクション
+| Button | Function |
+|-------|----------|
+| Help  | LLM プロバイダー設定のドキュメント／ガイドを開きます。 |
+| Test Service | API キー・モデル・Server URL が正しいかをテスト呼び出しで確認します。 |
+| Cancel | 変更を破棄してダイアログを閉じます。 |
+| Save | 設定内容を保存します。 |
 
-## Temperature - Top-P settings and workings
+## Temperature - Top-P の設定と動作
 
-| Temperature (T)	| Top-P (P)	| Effect on Output	| Use Case |
+| Temperature (T) | Top-P (P) | 出力への影響 | ユースケース |
 |-------|-------------|-------|-------------|
-| Low (T ≈ 0.2)	| Low (P ≈ 0.5)	| Very deterministic and strictly follows high-probability words. Almost no variation.	| Good for structured outputs like math, facts, legal docs, code generation.| 
-| Low (T ≈ 0.2)	| High (P ≈ 0.95)	| Mostly deterministic but allows some diversity within high-confidence tokens.	| Good for customer support, FAQs, chatbots with strict correctness.| 
-| Medium (T ≈ 0.7)	| Low (P ≈ 0.5)	| Balanced response with limited diversity.	| Works for formal writing, product descriptions, summarization.| 
-| Medium (T ≈ 0.7)	| High (P ≈ 0.95)	| Best balance between coherence & creativity. Maintains fluency while allowing variety.	| ✅ Recommended default for chat, general conversations, AI assistants.| 
-| High (T ≈ 1.2)	| Low (P ≈ 0.5)	| Somewhat unpredictable, but still respects top choices.	| Good for storytelling, opinion pieces, creative writing.| 
-| High (T ≈ 1.2)	| High (P ≈ 0.95)	| Most creative & diverse. Generates unique responses but may hallucinate or go off-topic.	| Best for poetry, fiction, brainstorming ideas.| 
-| Very High (T ≈ 2.0)	| Low (P ≈ 0.5)	| Chaotic & unstructured but still picks from top probabilities.	| Avoid for most use cases, unless extreme creativity is required.| 
-| Very High (T ≈ 2.0)	| High (P ≈ 1.0)	| Fully random, often nonsensical output.| 	Not recommended for practical tasks.| 
+| Low (T ≈ 0.2) | Low (P ≈ 0.5) | 高確率トークンのみをほぼ固定で使用し、変化がほとんどない決定的な応答。 | 数学、事実ベース、法律文書、コード生成など構造化出力に最適。 |
+| Low (T ≈ 0.2) | High (P ≈ 0.95) | 主に決定的だが高信頼トークン内で多少の多様性を許容。 | カスタマーサポート、FAQ、厳密さが必要なチャットボット向け。 |
+| Medium (T ≈ 0.7) | Low (P ≈ 0.5) | 多様性を抑えたバランスの取れた応答。 | 形式的な文章、製品説明、要約。 |
+| Medium (T ≈ 0.7) | High (P ≈ 0.95) | 首尾一貫性と創造性のベストバランス。流暢さを保ちつつバリエーションも確保。 | ✅ チャット、一般会話、AI アシスタントに推奨のデフォルト。 |
+| High (T ≈ 1.2) | Low (P ≈ 0.5) | 多少予測不能だがトップ候補は尊重。 | 物語、意見記事、クリエイティブライティング。 |
+| High (T ≈ 1.2) | High (P ≈ 0.95) | 高い創造性と多様性。独自の応答を生成するが幻覚や脱線のリスクあり。 | 詩、フィクション、アイデア出し。 |
+| Very High (T ≈ 2.0) | Low (P ≈ 0.5) | 混沌として非構造的だが高確率トークンからは選択。 | 極端な創造性が必要な場合以外は非推奨。 |
+| Very High (T ≈ 2.0) | High (P ≈ 1.0) | 完全にランダムで意味を成さないことが多い。 | 実務用途では推奨されません。 |
 
-## Top-P & Temperature - Recommended Defaults:
-| Use Case	| Temperature	| Top-P |
+## Top-P と Temperature の推奨デフォルト
+| Use Case | Temperature | Top-P |
 |-------|-------------|-------|
-| General Chatbot / AI Assistant	| 0.7	| 0.95| 
-| Technical Writing / FAQs	| 0.3	| 0.95| 
-| Storytelling / Creative Writing	| 1.2	| 0.9| 
-| Code Generation / Logical Responses	| 0.2	| 0.9| 
-| Poetry / Idea Brainstorming	| 1.5	| 0.95| 
+| General Chatbot / AI Assistant | 0.7 | 0.95 |
+| Technical Writing / FAQs | 0.3 | 0.95 |
+| Storytelling / Creative Writing | 1.2 | 0.9 |
+| Code Generation / Logical Responses | 0.2 | 0.9 |
+| Poetry / Idea Brainstorming | 1.5 | 0.95 |
 
 ## Seed
 
-A seed is a fixed starting point for a random number generator. Since language models use random sampling during token selection, setting a seed ensures that you get the same output every time.
+Seed は乱数生成器の固定された開始点です。言語モデルはトークン選択にランダムサンプリングを使うため、Seed を設定すると毎回同じ出力を得られます。
 
-### How Does It Work?
-1. Without a fixed seed: The model will generate different responses each time you run it (even with the same prompt).
-2. With a fixed seed (seed = 42, for example): The model will follow the same random path and give the same response every time.
+### 仕組み
+1. 固定 Seed なし: 同じプロンプトでも実行するたびに異なる応答になります。
+2. 固定 Seed あり（例: seed = 42）: 同じランダム経路をたどるため、毎回同じ応答になります。
 
 
-## LLMs that don't support the /chat/completions endpoint
+## /chat/completions エンドポイントをサポートしない LLM について
 
-If you want to use an LLM that doesn't natively support the /chat/completions endpoint (like Cohere, AI21, or older models), you can use [LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) Server to standardize your API interactions:
-1. All requests use the familiar /chat/completions endpoint regardless of the target model
-2. Parameters are normalized across providers (temperature, max_tokens, etc.)
-3. Response formats are standardized to match OpenAI's structure
-4. Behind the scenes, LiteLLM handles the translation between the OpenAI format and provider-specific formats
+もし Cohere や AI21、旧モデルのように /chat/completions をネイティブサポートしない LLM を使いたい場合は、[LiteLLM Proxy](https://docs.litellm.ai/docs/simple_proxy) サーバーで API インタラクションを標準化できます。
+1. すべてのリクエストが対象モデルに関係なく /chat/completions エンドポイントを使用。
+2. プロバイダー間でパラメーター（temperature、max_tokens など）を正規化。
+3. 応答フォーマットを OpenAI 構造に合わせて標準化。
+4. バックエンドでは LiteLLM が OpenAI 形式とプロバイダー固有形式の相互変換を処理します。

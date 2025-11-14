@@ -1,23 +1,23 @@
-AI Extension for OpenRefine 
-===========================
+OpenRefine 用 AI Extension 
+=========================
 
-The OpenRefine AI Extension bridges the power of modern language models with OpenRefine's robust data transformation capabilities. This extension enables users to leverage any LLM provider that supports a chat completion API endpoint, bringing AI-powered data wrangling, enhancement, and analysis directly into your OpenRefine workflows. For more information, read the [AI Column Extraction](llm-prompt-guide.md) and [Provider Setup](llm-provider-guide.md) guides in this repo.
+OpenRefine AI Extension は、最新の大規模言語モデルの力と OpenRefine の強力なデータ変換機能をつなぎます。チャット補完 API エンドポイントに対応したあらゆる LLM プロバイダーを利用できるため、AI を使ったデータ整形・強化・分析を OpenRefine のワークフローに直接組み込めます。詳しくは、このリポジトリにある [AI Column Extraction](llm-prompt-guide.md) と [Provider Setup](llm-provider-guide.md) ガイドを参照してください。
 
-## Purpose
-The extension serves multiple purposes in the data processing pipeline:
+## 目的
+この拡張機能はデータ処理パイプラインで以下の用途を担います。
 
-1. Intelligent Data Cleaning: Use LLMs to suggest and implement context-aware data cleaning operations that go beyond rule-based approaches.
-2. Semantic Enrichment: Enhance datasets by generating additional attributes or metadata based on existing content.
-3. Natural Language Transformations: Express complex data transformations in plain English.
-4. Anomaly Detection: Identify unusual patterns or outliers in your data through AI-powered analysis.
-5. Content Generation: Fill gaps in your datasets with contextually appropriate synthetic data.
+1. インテリジェントなデータクリーニング: ルールベースを超える文脈対応のクリーニング操作を LLM に提案・実行させます。
+2. セマンティックな拡張: 既存の内容に基づいて追加属性やメタデータを生成し、データセットを拡充します。
+3. 自然言語による変換: 複雑なデータ変換を平易な英語で記述できます。
+4. 異常検知: AI 解析でデータ中の異常パターンや外れ値を特定します。
+5. コンテンツ生成: 文脈に即した合成データでデータセットの欠損を補います。
 
-It works with **OpenRefine 3.8.7 and later versions of OpenRefine**.
+この拡張機能は **OpenRefine 3.8.7 以降** で動作します。
 
 
-### Install this extension in OpenRefine
+### OpenRefine へのインストール
 
-Download the .zip file of the [latest release of this extension](https://github.com/sunilnatraj/llm-extension/releases).
-Unzip this file and place the unzipped folder in your OpenRefine extensions folder. [Read more about installing extensions in OpenRefine's user manual](https://docs.openrefine.org/manual/installing#installing-extensions).
+[最新リリース](https://github.com/sunilnatraj/llm-extension/releases) の .zip ファイルをダウンロードします。
+zip を展開し、生成されたフォルダーを OpenRefine の extensions フォルダーに配置します。インストール手順の詳細は [OpenRefine ユーザーマニュアル](https://docs.openrefine.org/manual/installing#installing-extensions) を参照してください。
 
-When this extension is installed correctly, when you open a project you will see in the Extensions bar AI menu.
+インストールが正しく完了すると、プロジェクトを開いた際に Extensions バーに AI メニューが表示されます。

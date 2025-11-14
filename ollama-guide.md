@@ -1,43 +1,41 @@
 ![ollama](https://github.com/user-attachments/assets/ea18144e-878f-4b8d-9b71-011e738516c9)
 # Ollama
 
-Ollama is a tool for running and interacting with open-source large language models (LLMs) locally.
+Ollama は、オープンソースの大規模言語モデル (LLM) をローカルで実行し対話できるツールです。
 
-## Installation
-[Install instructions](https://github.com/ollama/ollama/blob/main/README.md#quickstart)
+## インストール
+[インストール手順](https://github.com/ollama/ollama/blob/main/README.md#quickstart)
 
-## LLM Models Supported
-[List of LLM modesl supported](https://ollama.com/library)
+## 対応 LLM モデル
+[サポートされている LLM 一覧](https://ollama.com/library)
 
-## Installing an LLM Model
-[Steps to install an LLM Model](https://github.com/ollama/ollama/blob/main/README.md#model-library)
+## LLM モデルのインストール
+[LLM モデルをインストールする手順](https://github.com/ollama/ollama/blob/main/README.md#model-library)
 
-## Commands reference
+## コマンドリファレンス
 
 | Command  | Description |
 |-------------|------------|
- | ollama list |  List LLM models on your computer | 
- | ollama show <model name> |  Show model information  | 
- | ollama ps |  List which models are currently loaded  | 
- | ollama run <model> |  Runs a specific model and makes it ready for interaction. |
- | ollama stop <model name> | Stop a model which is currently running |
+ | ollama list |  PC 上の LLM モデル一覧を表示 | 
+ | ollama show <model name> |  モデル情報を表示 | 
+ | ollama ps |  現在ロードされているモデルを一覧表示 | 
+ | ollama run <model> |  指定モデルを実行し、対話可能な状態にする |
+ | ollama stop <model name> | 実行中のモデルを停止 |
 
-## OpenAI compatibility
-Ollama offers limited support for certain OpenAI API functionalities, enabling integration with
-existing applications. [More details are available here](https://github.com/ollama/ollama/blob/main/docs/openai.md)
-1. REST/API endpoints – See : https://github.com/ollama/ollama/blob/main/docs/openai.md#endpoints
+## OpenAI 互換性
+Ollama は一部の OpenAI API 機能を限定的にサポートしており、既存アプリケーションとの連携が可能です。[詳細はこちら](https://github.com/ollama/ollama/blob/main/docs/openai.md)
+1. REST/API エンドポイント – https://github.com/ollama/ollama/blob/main/docs/openai.md#endpoints を参照
 2. Chat completion endpoint: http://localhost:11434/v1/chat/completions
 
-# Ollama configuration for the AI plugin (Plugin version V0.1.2 and OpenRefine version 3.9+)
+# AI プラグイン向け Ollama 設定（プラグイン V0.1.2／OpenRefine 3.9+）
 
 | Attribute  | Value |
 |-------------|------------|
  | apiURL |  http://localhost:11434/v1/chat/completions | 
- | modelName | Set the model name you wish to use e.g. llama3.1:8b |
+ | modelName | 使用したいモデル名を設定（例: llama3.1:8b） |
  | apiKey | 1234 |
  | waittime | 1000 | 
 
-For details on all attributes refer the setup guide.
+全属性の詳細はセットアップガイドを参照してください。
 
 ![image](https://github.com/user-attachments/assets/6e0fae2d-7410-42c4-a6df-48475a98a176)
-

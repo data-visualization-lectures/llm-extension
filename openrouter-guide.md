@@ -1,39 +1,33 @@
 # OpenRouter
-[OpenRouter](openrouter.ai) is a platform that provides unified API access to multiple AI models from various
-providers, including OpenAI, Google, Anthropic, Mistral, and others. It allows developers to interact with
-different models using a single API key and a standardized OpenAI-compatible API.
+[OpenRouter](openrouter.ai) は OpenAI、Google、Anthropic、Mistral など複数プロバイダーの AI モデルへ統一 API でアクセスできるプラットフォームです。単一の API キーと OpenAI 互換の標準化 API で、さまざまなモデルとやり取りできます。
 
-## LLM Models Supported
-[List of LLM modesl supported](https://openrouter.ai/models)
+## 対応 LLM モデル
+[サポートされている LLM の一覧](https://openrouter.ai/models)
 
-## Rate Limits
-[Refer documentation](https://openrouter.ai/docs/api-reference/limits)
+## レート制限
+[ドキュメントを参照](https://openrouter.ai/docs/api-reference/limits)
 
-## API Key
-1. Obtain an API key after logging into openrouter.ai.
-2. Create API Key - https://openrouter.ai/settings/keys >> Create API Key >> Save <your key>
+## API キー
+1. openrouter.ai にログイン後、API キーを取得します。
+2. Create API Key - https://openrouter.ai/settings/keys >> Create API Key >> <your key> を保存します。
+3. アカウント管理 - https://openrouter.ai/settings/preferences
+4. クレジット確認 - https://openrouter.ai/settings/credits 
+5. クイックスタートガイド - https://openrouter.ai/docs/quickstart
 
-3. Manage your account - https://openrouter.ai/settings/preferences
-4. Check your credit - https://openrouter.ai/settings/credits 
-5. Quck start guide - https://openrouter.ai/docs/quickstart
+## OpenAI 互換性
+OpenRouter は OpenAI と完全互換で、多くのパラメーターに対応しています。チャット補完に関する詳細は https://openrouter.ai/docs/api-reference/chat-completion を参照してください。
 
-## OpenAI compatibility
-It is completely compatible with OpenAI and supports an array of parameters. See here for details
-related to chap completion – https://openrouter.ai/docs/api-reference/chat-completion.
-
-# OpenRouter configuration for the AI plugin (Plugin version V0.1.2 and OpenRefine version 3.9+)
+# AI プラグイン向け OpenRouter 設定（プラグイン V0.1.2／OpenRefine 3.9+）
 
 | Attribute  | Value |
 |-------------|------------|
  | apiURL |  https://openrouter.ai/api/v1/chat/completions | 
- | modelName | Set the model name |
+ | modelName | モデル名を設定 |
  | apiKey | <apiKey> |
  | waittime | 5000 | 
 
-For details on all attributes refer the setup guide.
+全属性の詳細はセットアップガイドを参照してください。
 
-### NB: Multiple OpenRouter instances can be created using 
-different models while utilizing the same API key. This can be achieved by modifying the instance label (e.g. OpenRouter-DeepSeek) and specifying the desired model name (e.g., deepseek/deepseek-v3-base:free). Other configuration parameters may be adjusted as required or retained with their existing values.
+### NB: 同じ API キーを使いながら、異なるモデルで複数の OpenRouter インスタンスを作成できます。インスタンスラベル（例: OpenRouter-DeepSeek）を変更し、使用したいモデル名（例: deepseek/deepseek-v3-base:free）を指定してください。他の設定値は必要に応じて調整するか、既存のままでも問題ありません。
 
 ![image](https://github.com/user-attachments/assets/6e2d9023-a450-43b1-9233-b63eaeb84dab)
-
