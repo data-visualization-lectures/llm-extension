@@ -38,4 +38,4 @@ Ollama は一部の OpenAI API 機能を限定的にサポートしており、�
 
 全属性の詳細はセットアップガイドを参照してください。
 
-![image](https://github.com/user-attachments/assets/6e0fae2d-7410-42c4-a6df-48475a98a176)
+![image](<images/LLM Provider.png>)
