@@ -4,13 +4,13 @@
 Ollama は、オープンソースの大規模言語モデル (LLM) をローカルで実行し対話できるツールです。
 
 ## インストール
-[インストール手順](https://github.com/ollama/ollama/blob/main/README.md#quickstart)
+[インストール手順](https://docs.ollama.com/getting-started/installation)
 
 ## 対応 LLM モデル
 [サポートされている LLM 一覧](https://ollama.com/library)
 
 ## LLM モデルのインストール
-[LLM モデルをインストールする手順](https://github.com/ollama/ollama/blob/main/README.md#model-library)
+[LLM モデルをインストールする手順](https://docs.ollama.com/reference/models)
 
 ## コマンドリファレンス
 
@@ -23,8 +23,8 @@ Ollama は、オープンソースの大規模言語モデル (LLM) をローカ
  | ollama stop <model name> | 実行中のモデルを停止 |
 
 ## OpenAI 互換性
-Ollama は一部の OpenAI API 機能を限定的にサポートしており、既存アプリケーションとの連携が可能です。[詳細はこちら](https://github.com/ollama/ollama/blob/main/docs/openai.md)
-1. REST/API エンドポイント – https://github.com/ollama/ollama/blob/main/docs/openai.md#endpoints を参照
+Ollama は一部の OpenAI API 機能を限定的にサポートしており、既存アプリケーションとの連携が可能です。[詳細はこちら](https://docs.ollama.com/api/openai-compatibility)
+1. OpenAI-Compatible API のエンドポイント仕様と例を同ページで確認できます。
 2. Chat completion endpoint: http://localhost:11434/v1/chat/completions
 
 # AI プラグイン向け Ollama 設定（プラグイン V0.1.2／OpenRefine 3.9+）
