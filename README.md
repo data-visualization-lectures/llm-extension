@@ -18,6 +18,6 @@ OpenRefine AI Extension は、最新の大規模言語モデルの力と OpenRef
 ### OpenRefine へのインストール
 
 [最新リリース](https://github.com/sunilnatraj/llm-extension/releases) の .zip ファイルをダウンロードします。
-zip を展開し、生成されたフォルダーを OpenRefine の extensions フォルダーに配置します。インストール手順の詳細は [OpenRefine ユーザーマニュアル](https://docs.openrefine.org/manual/installing#installing-extensions) を参照してください。
+zip を展開し、生成されたフォルダーを OpenRefine の extensions フォルダーに配置します。インストール手順の詳細は [OpenRefine ユーザーマニュアル](https://openrefine.dataviz.jp/docs/manual/installing#installing-extensions) を参照してください。
 
 インストールが正しく完了すると、プロジェクトを開いた際に Extensions バーに AI メニューが表示されます。
